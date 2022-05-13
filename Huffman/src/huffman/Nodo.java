@@ -1,6 +1,6 @@
 package huffman;
 
-public class Nodo <E extends Comparable<E>> implements Comparable<Nodo> {
+public class Nodo <E extends Comparable<E>>{
 	// FRECUENCIA: La cantidad de veces que se repite el elemento dentro del texto
 	// LLAVE: El caracter asociado al nodo en particular (en este cado puede ser un simbolo o null si equivale a una suma)
 	// Declaracion de variables de la clase
@@ -12,8 +12,8 @@ public class Nodo <E extends Comparable<E>> implements Comparable<Nodo> {
 	
 	// Constructores de la clase
 	// CONSTRUCTOR 1 (Pasando la frecuencia del nodo)
-	public Nodo(int frecuencia) {
-		this.frecuencia = frecuencia;
+	public Nodo(E llave) {
+		this.llave = llave;
 		this.hijoIzquierda = null;
 		this.hijoDerecha = null;
 		this.nodoPadre = null;
@@ -74,10 +74,5 @@ public class Nodo <E extends Comparable<E>> implements Comparable<Nodo> {
 
 	public void setNodoPadre(Nodo<E> nodoPadre) {
 		this.nodoPadre = nodoPadre;
-	}
-
-	@Override
-	public int compareTo(Nodo o) {
-		return (this.frecuencia - o.getFrecuencia());
 	}
 }

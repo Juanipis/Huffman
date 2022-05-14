@@ -16,6 +16,12 @@ public class Main {
 		colaPrueba.add(d4);
 		Nodo<Diccionario> nodoPruebaNodo = CreadorArbol.construccion(colaPrueba);
 		System.out.println(nodoPruebaNodo.getHijoDerecha());
+
+		// Test metodo reconocimientoCaracteres
+
+//		String msg = "abBb cC";
+//		CreadorArbol creador = new CreadorArbol();
+//		System.out.print(creador.reconocimientoCaracteres(msg));
 	}
 
 }

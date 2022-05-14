@@ -37,8 +37,6 @@ class Diccionario implements Comparable<Diccionario>{
 		return valor;
 	}
 	
-	
-	
 	@Override
 	public String toString() {
 		return "Diccionario [simbolo=" + simbolo + ", valor=" + valor + "]";

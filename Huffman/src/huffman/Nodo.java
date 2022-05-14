@@ -12,7 +12,7 @@ public class Nodo <E extends Comparable<E>> implements Comparable<Nodo<E>>{
 	protected Nodo<E> nodoPadre;
 	
 	// Constructores de la clase
-	// CONSTRUCTOR 1 (Pasando la frecuencia del nodo)
+	// CONSTRUCTOR 1 (Pasando la llave del nodo)
 	public Nodo(E llave) {
 		this.llave = llave;
 		this.hijoIzquierda = null;
@@ -20,18 +20,8 @@ public class Nodo <E extends Comparable<E>> implements Comparable<Nodo<E>>{
 		this.nodoPadre = null;
 		this.llegada = ++llegadaCont;
 	}
-	public Nodo(E llave, int llegada) {
-		this.llave = llave;
-		this.hijoIzquierda = null;
-		this.hijoDerecha = null;
-		this.nodoPadre = null;
-		this.llegada = llegada;
-	}
-
-	// CONSTRUCTOR 2 (Pasando la frecuencia y la llave del nodo)
-	
-	
-	// CONSTRUCTOR 3 (Pasando todos los datos asociados al nodo)
+		
+	// CONSTRUCTOR 2 (Pasando todos los datos asociados al nodo)
 	public Nodo(E llave, Nodo<E> hijoIzquierda, Nodo<E> hijoDerecha, Nodo<E> nodoPadre) {
 		this.llegada = ++llegadaCont;
 		this.llave = llave;
@@ -41,11 +31,10 @@ public class Nodo <E extends Comparable<E>> implements Comparable<Nodo<E>>{
 	}
 	
 	// Getters y Setters para cada una de las variables asociadas
-	// FRECUENCIA
+	// LLEGADA
 	public int getLlegada() {
 		return llegada;
 	}
-
 	// LLAVE
 	public E getLlave() {
 		return llave;

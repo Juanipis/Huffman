@@ -91,4 +91,5 @@ class Diccionario implements Comparable<Diccionario>{
 	public int compareTo(Diccionario o) {
 		return (this.valor - o.getValor());
 	}
+
 }

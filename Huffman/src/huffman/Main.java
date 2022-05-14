@@ -1,11 +1,13 @@
 package huffman;
 
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Main {
 
 	public static void main(String[] args) {
 		PriorityQueue<Diccionario> colaPrueba = new PriorityQueue<>();
+		
 		Diccionario d1 = new Diccionario('A',3);
 		Diccionario d2 = new Diccionario('B',4);
 		Diccionario d3 = new Diccionario('C',2);
@@ -15,6 +17,7 @@ public class Main {
 		colaPrueba.add(d3);
 		colaPrueba.add(d4);
 		Nodo<Diccionario> nodoPruebaNodo = CreadorArbol.construccion(colaPrueba);
+		Map<Character,String> carlos = GenDictionary.GenDic(nodoPruebaNodo);
 		System.out.println(nodoPruebaNodo.getHijoDerecha());
 
 		// Test metodo reconocimientoCaracteres

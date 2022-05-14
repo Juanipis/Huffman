@@ -1,9 +1,31 @@
 package huffman;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class CreadorArbol  {
+public static String leerFile(File file) throws IOException {
+		
+//		String s = file.getAbsolutePath();		
+//		System.out.println("1:  "+s+" || "+file.getPath()+" ");
+//		System.out.println(System.getProperty("user.dir"));
+		FileInputStream fileStream = new FileInputStream(file);
+		BufferedReader br = new BufferedReader(new InputStreamReader(fileStream));
+		String st;
+		StringBuilder almacenador = new StringBuilder();
+			while((st =br.readLine()) != null)
+			//alm.concat(br.nextLine()+"\n");
+			almacenador.append(st+System.lineSeparator());
+		return almacenador.toString();
+			//System.out.println(st);
+			
+	}
+	
 	public static Nodo<Diccionario> construccion(PriorityQueue<Diccionario> tablaFrecuencias){
 		PriorityQueue<Nodo<Diccionario>> tablaNodos = new PriorityQueue<>();
 		while(!tablaFrecuencias.isEmpty()) {

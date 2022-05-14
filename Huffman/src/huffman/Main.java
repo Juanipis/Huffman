@@ -1,12 +1,20 @@
 package huffman;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Main {
+	
+	
 
 	public static void main(String[] args) {
+		File file = new File("C:\\Users\\soporte\\Documents\\GitHub\\Huffman\\Huffman\\Fichero.txt");
+		
+		
 		PriorityQueue<Diccionario> colaPrueba = new PriorityQueue<>();
+		
 		
 		Diccionario d1 = new Diccionario('A',3);
 		Diccionario d2 = new Diccionario('B',4);

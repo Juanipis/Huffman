@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 public class CreadorArbol  {
 	public static Nodo<Diccionario> construccion(PriorityQueue<Diccionario> tablaFrecuencias){
-		PriorityQueue<Nodo<Diccionario>> tablaNodos = new PriorityQueue();
+		PriorityQueue<Nodo<Diccionario>> tablaNodos = new PriorityQueue<>();
 		while(!tablaFrecuencias.isEmpty()) {
 			tablaNodos.add(new Nodo<Diccionario>(tablaFrecuencias.poll()));
 		}
@@ -27,7 +27,6 @@ class Diccionario implements Comparable<Diccionario>{
 	
 	public Diccionario(int valor) {
 		this.valor = valor;
-		this.simbolo = '1';
 	}
 	public Diccionario(char simbolo, int valor) {
 		this.simbolo = simbolo;
@@ -38,6 +37,12 @@ class Diccionario implements Comparable<Diccionario>{
 		return valor;
 	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Diccionario [simbolo=" + simbolo + ", valor=" + valor + "]";
+	}
 	@Override
 	public int compareTo(Diccionario o) {
 		return (this.valor - o.getValor());

@@ -1,10 +1,11 @@
 package huffman;
 
-public class Nodo <E extends Comparable<E>>{
+public class Nodo <E extends Comparable<E>> implements Comparable<Nodo<E>>{
 	// FRECUENCIA: La cantidad de veces que se repite el elemento dentro del texto
 	// LLAVE: El caracter asociado al nodo en particular (en este cado puede ser un simbolo o null si equivale a una suma)
 	// Declaracion de variables de la clase
-	protected int frecuencia;
+	protected int llegada;
+	private static int llegadaCont = 0;
 	protected E llave;
 	protected Nodo<E> hijoIzquierda;
 	protected Nodo<E> hijoDerecha;
@@ -17,32 +18,34 @@ public class Nodo <E extends Comparable<E>>{
 		this.hijoIzquierda = null;
 		this.hijoDerecha = null;
 		this.nodoPadre = null;
+		this.llegada = ++llegadaCont;
+	}
+	public Nodo(E llave, int llegada) {
+		this.llave = llave;
+		this.hijoIzquierda = null;
+		this.hijoDerecha = null;
+		this.nodoPadre = null;
+		this.llegada = llegada;
 	}
 
 	// CONSTRUCTOR 2 (Pasando la frecuencia y la llave del nodo)
-	public Nodo(int frecuencia, E llave) {
-		this.frecuencia = frecuencia;
-		this.llave = llave;
-	}
+	
 	
 	// CONSTRUCTOR 3 (Pasando todos los datos asociados al nodo)
-	public Nodo(int frecuencia, E llave, Nodo<E> hijoIzquierda, Nodo<E> hijoDerecha, Nodo<E> nodoPadre) {
-		this.frecuencia = frecuencia;
+	public Nodo(E llave, Nodo<E> hijoIzquierda, Nodo<E> hijoDerecha, Nodo<E> nodoPadre) {
+		this.llegada = ++llegadaCont;
 		this.llave = llave;
 		this.hijoIzquierda = hijoIzquierda;
 		this.hijoDerecha = hijoDerecha;
 		this.nodoPadre = nodoPadre;
 	}
-
+	
 	// Getters y Setters para cada una de las variables asociadas
 	// FRECUENCIA
-	public int getFrecuencia() {
-		return frecuencia;
+	public int getLlegada() {
+		return llegada;
 	}
 
-	public void setFrecuencia(int frecuencia) {
-		this.frecuencia = frecuencia;
-	}
 	// LLAVE
 	public E getLlave() {
 		return llave;
@@ -74,5 +77,21 @@ public class Nodo <E extends Comparable<E>>{
 
 	public void setNodoPadre(Nodo<E> nodoPadre) {
 		this.nodoPadre = nodoPadre;
+	}
+	
+	@Override
+	public String toString() {
+		return "Nodo [ llave=" + llave + "]";
+	}
+
+	@Override
+	public int compareTo(Nodo<E> o) {
+		
+		if(this.llave.compareTo(o.llave) == 0) {
+			return this.llegada - o.llegada;
+		}
+		else {
+			return this.llave.compareTo(o.llave);
+		}
 	}
 }

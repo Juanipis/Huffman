@@ -10,8 +10,7 @@ public class Main {
 	
 
 	public static void main(String[] args) {
-		File file = new File("C:\\Users\\soporte\\Documents\\GitHub\\Huffman\\Huffman\\Fichero.txt");
-		
+		File file = new File("Fichero.txt");
 		
 		PriorityQueue<Diccionario> colaPrueba = new PriorityQueue<>();
 		

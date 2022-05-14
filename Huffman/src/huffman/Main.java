@@ -12,6 +12,7 @@ public class Main {
 		Diccionario d2 = new Diccionario('B',4);
 		Diccionario d3 = new Diccionario('C',2);
 		Diccionario d4 = new Diccionario('D',1);
+
 		colaPrueba.add(d1);
 		colaPrueba.add(d2);
 		colaPrueba.add(d3);

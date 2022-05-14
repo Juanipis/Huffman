@@ -91,4 +91,5 @@ class FrecuenciasCaracteres implements Comparable<FrecuenciasCaracteres>{
 	public int compareTo(FrecuenciasCaracteres o) {
 		return (this.valor - o.getValor());
 	}
+
 }

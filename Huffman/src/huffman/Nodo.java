@@ -2,7 +2,11 @@ package huffman;
 
 public class Nodo <E extends Comparable<E>> implements Comparable<Nodo<E>>{
 	// FRECUENCIA: La cantidad de veces que se repite el elemento dentro del texto
+
 	// LLAVE: El caracter asociado al nodo en particular (en este cado puede ser un simbolo o null si equivale a una suma)
+
+	// LLAVE: El caracter asociado al nodo en particular (en este caso puede ser un simbolo o null si equivale a una suma)
+
 	// Declaracion de variables de la clase
 	protected int llegada;
 	private static int llegadaCont = 0;

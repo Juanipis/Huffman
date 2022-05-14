@@ -1,20 +1,24 @@
 package huffman;
 
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Main {
 
 	public static void main(String[] args) {
-		PriorityQueue<FrecuenciasCaracteres> colaPrueba = new PriorityQueue<>();
-		FrecuenciasCaracteres d1 = new FrecuenciasCaracteres('A',3);
-		FrecuenciasCaracteres d2 = new FrecuenciasCaracteres('B',4);
-		FrecuenciasCaracteres d3 = new FrecuenciasCaracteres('C',2);
-		FrecuenciasCaracteres d4 = new FrecuenciasCaracteres('D',1);
+		PriorityQueue<Diccionario> colaPrueba = new PriorityQueue<>();
+		
+		Diccionario d1 = new Diccionario('A',3);
+		Diccionario d2 = new Diccionario('B',4);
+		Diccionario d3 = new Diccionario('C',2);
+		Diccionario d4 = new Diccionario('D',1);
+
 		colaPrueba.add(d1);
 		colaPrueba.add(d2);
 		colaPrueba.add(d3);
 		colaPrueba.add(d4);
-		Nodo<FrecuenciasCaracteres> nodoPruebaNodo = CreadorArbol.construccion(colaPrueba);
+		Nodo<Diccionario> nodoPruebaNodo = CreadorArbol.construccion(colaPrueba);
+		Map<Character,String> carlos = GenDictionary.GenDic(nodoPruebaNodo);
 		System.out.println(nodoPruebaNodo.getHijoDerecha());
 
 		// Test metodo reconocimientoCaracteres

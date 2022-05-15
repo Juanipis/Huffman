@@ -1,32 +1,9 @@
 package huffman;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class CreadorArbol  {
-	
-public static String leerFile(File file) throws IOException {
-		
-//		String s = file.getAbsolutePath();		
-//		System.out.println("1:  "+s+" || "+file.getPath()+" ");
-//		System.out.println(System.getProperty("user.dir"));
-		FileInputStream fileStream = new FileInputStream(file);
-		BufferedReader br = new BufferedReader(new InputStreamReader(fileStream));
-		String st;
-		StringBuilder almacenador = new StringBuilder();
-			while((st =br.readLine()) != null)
-			//alm.concat(br.nextLine()+"\n");
-			almacenador.append(st+System.lineSeparator());
-		return almacenador.toString();
-			//System.out.println(st);
-			
-	}
-	
 	public static Nodo<Diccionario> construccion(PriorityQueue<Diccionario> tablaFrecuencias){
 		PriorityQueue<Nodo<Diccionario>> tablaNodos = new PriorityQueue<>();
 		while(!tablaFrecuencias.isEmpty()) {
@@ -56,9 +33,6 @@ public static String leerFile(File file) throws IOException {
 				caracteres.add(new Diccionario(caracteresMensaje[i], 0) );
 		}
 
-		// TEST
-		//System.out.println(caracteres);
-
 		for (int i = 0; i < caracteresMensaje.length; i++) { // Se recorre el arreglo de caracteres y se suma 1 a la frecuencia de cada caracter
 			for (int j = 0; j < caracteres.size(); j++) {
 				if (caracteres.get(j).getSimbolo() == caracteresMensaje[i])
@@ -66,17 +40,9 @@ public static String leerFile(File file) throws IOException {
 			}
 		}
 
-		// TEST
-		//System.out.println(caracteres);
-
 		PriorityQueue<Diccionario> tablaFrecuencias = new PriorityQueue<>(); // Se crea una cola de prioridad de diccionarios
 		for (int i = 0; i < caracteres.size(); i++)  // Se recorre el arreglo de diccionarios y se agrega a la cola de prioridad
 			tablaFrecuencias.add(caracteres.get(i));
-
-
-		// TEST
-		//System.out.println(tablaFrecuencias);
-
 		return tablaFrecuencias;
 	}
 

@@ -12,8 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 public class Main {
 	
-	
-
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		compresion("prueba.txt");
 		desComprension("prueba.txt.huffman");

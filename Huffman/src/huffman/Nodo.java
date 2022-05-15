@@ -78,6 +78,8 @@ public class Nodo <E extends Comparable<E>> implements Comparable<Nodo<E>>{
 	}
 
 	@Override
+	// En caso de que la frecuencias de los caracteres sean iguales, se va a organizar por orden de llegada
+	// de lo contrario se sigue realizando comparación por frecuencias
 	public int compareTo(Nodo<E> o) {
 		
 		if(this.llave.compareTo(o.llave) == 0) {

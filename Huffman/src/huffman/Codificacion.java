@@ -13,18 +13,18 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 public class Codificacion {
-
 	public static String secuenciasBytes(Map<Character, String> map, String lectura) {
 		//Fase 1, traduccion
-		StringBuilder textPas1 = new StringBuilder();
+		// Se recorre cada uno de los caracteres del archivo leido y a partir de ellos se van a 
+		// traducir a secuencias binarios con el mapa
+		StringBuilder textPas1 = new StringBuilder(); // StringBuilder que contiene la secuencia original en binarios
 		for (int i = 0; i < lectura.length(); i++) {
 			textPas1.append(map.get(lectura.charAt(i)));
 		}
 		StringBuilder textPas2 = new StringBuilder();
 		
 		//Fase 2, creacion de sub cadenas, todas deben empezar por 1 para que se pueda crear un caracter
-		
-		for (int i = 0; i < textPas1.length(); i++) {
+		for (int i = 0; i < textPas1.length(); i++) { // Separacion de secuencias de 15 bits con un ";"
 			if(i%15==0 && i!=0 && i!=1) {
 				textPas2.append(";");
 				textPas2.append(textPas1.charAt(i));
@@ -38,10 +38,9 @@ public class Codificacion {
 
 	public static void escritura(String[] arr, String lastSecuence, String ruta) throws IOException {
 		File f = new File(ruta); // declaramos e inicializamos un archivo nuevo para rellenar luego con integers
-		//DataOutputStream flujo = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(f),"UTF-8"));
 		BufferedWriter flujo = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f), StandardCharsets.UTF_8));
 		for (int i = 0; i < arr.length; i++) {
-			short value= Short.parseShort(arr[i], 2);
+			short value = Short.parseShort(arr[i], 2);
 			flujo.write(value);
 		}
 		//ESCRITURA DE LA ULTIMA SECUENCIA EN BINARIO
@@ -52,7 +51,6 @@ public class Codificacion {
 	}
 	
 	public static String Decodificar2(String s, Map<Character,String> map, String lasBinaryDecode) {//la raíz del árbol
-		//El string s esta en utf-16, debemos convertirlo a binario
 		s = decodeUTF8Binario(s);
 		s = s+lasBinaryDecode;
 		Map<String, Character> inverseMap = new HashMap<>();

@@ -4,29 +4,26 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import java.util.PriorityQueue;
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.FileInputStream;
 public class Main {
 	
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		File file = new File("Fichero.txt");
-		
-		PriorityQueue<Diccionario> colaPrueba = new PriorityQueue<>();
-		
-		
-		Diccionario d1 = new Diccionario('A',3);
-		Diccionario d2 = new Diccionario('B',4);
-		Diccionario d3 = new Diccionario('C',2);
-		Diccionario d4 = new Diccionario('D',1);
-		colaPrueba.add(d1);
-		colaPrueba.add(d2);
-		colaPrueba.add(d3);
-		colaPrueba.add(d4);
-		Nodo<Diccionario> nodoPruebaNodo = CreadorArbol.construccion(colaPrueba);
+		String lectura = CreadorArbol.leerFile(file);
+		PriorityQueue<Diccionario> cola = CreadorArbol.reconocimientoCaracteres(lectura);
+		Nodo<Diccionario> nodoPruebaNodo = CreadorArbol.construccion(cola);
+		ArbolB<Diccionario> arbol = new ArbolB<Diccionario>(nodoPruebaNodo);
 		Map<Character,String> carlos = GenDictionary.GenDic(nodoPruebaNodo);
-		System.out.println(nodoPruebaNodo.getHijoDerecha());
-
+		String arrCodf = Codificacion.secuenciasBytes(carlos, lectura);
+		String mensajedef = Codificacion.Decodificar2(arrCodf, carlos);
+		System.out.println(mensajedef);
+		
+		System.out.println(":)");
 		// Test metodo reconocimientoCaracteres
 
 //		String msg = "abBb cC";

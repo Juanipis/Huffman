@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class CreadorArbol  {
+	
 public static String leerFile(File file) throws IOException {
 		
 //		String s = file.getAbsolutePath();		

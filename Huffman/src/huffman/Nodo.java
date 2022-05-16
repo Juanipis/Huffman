@@ -1,16 +1,13 @@
 package huffman;
 
 public class Nodo <E extends Comparable<E>> implements Comparable<Nodo<E>>{
-	// FRECUENCIA: La cantidad de veces que se repite el elemento dentro del texto
 
 	// LLAVE: El caracter asociado al nodo en particular (en este cado puede ser un simbolo o null si equivale a una suma)
 
-	// LLAVE: El caracter asociado al nodo en particular (en este caso puede ser un simbolo o null si equivale a una suma)
-
 	// Declaracion de variables de la clase
-	protected int llegada;
-	private static int llegadaCont = 0;
-	protected E llave;
+	protected int llegada; // Valor asociado a el orden
+	private static int llegadaCont = 0; // Contador que aumenta a medida en que se crean nuevos nodos
+	protected E llave; // En nuestro caso es el objeto de tipo diccionario que tiene simbolo y valor
 	protected Nodo<E> hijoIzquierda;
 	protected Nodo<E> hijoDerecha;
 	protected Nodo<E> nodoPadre;
@@ -74,12 +71,12 @@ public class Nodo <E extends Comparable<E>> implements Comparable<Nodo<E>>{
 	
 	@Override
 	public String toString() {
-		return "Nodo [ llave=" + llave + "]";
+		return "Nodo [ llave =" + llave + "]";
 	}
 
 	@Override
 	public int compareTo(Nodo<E> o) {
-		
+		// Si las llaves en términos de frecuencias son iguales, se comparan por orden de llega, sino por frecuencias
 		if(this.llave.compareTo(o.llave) == 0) {
 			return this.llegada - o.llegada;
 		}

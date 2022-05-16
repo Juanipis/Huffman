@@ -11,12 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Simon
- */
 public class Menu extends javax.swing.JFrame {
-
+// MENÚ GRÁFICO
     File compresion = null;
     File descompresion = null;
     File temp = null;

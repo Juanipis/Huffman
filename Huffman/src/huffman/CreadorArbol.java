@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class CreadorArbol {
-	// M�todo de lectura y almacenamiento del archivo
+	// Metodo de lectura y almacenamiento del archivo
 	public static String leerFile(File file) throws IOException {
 		// LEE EL ARCHIVO A EXAMINAR
 		FileInputStream fileStream = new FileInputStream(file); // Flujo de entrada de datos
@@ -23,7 +23,7 @@ public class CreadorArbol {
 
 	}
 	
-	// M�todo de reconocimiento de caracteres y generaci�n de tabla de frecuencias
+	// Metodo de reconocimiento de caracteres y generacion de tabla de frecuencias
 	public static PriorityQueue<Diccionario> reconocimientoCaracteres(String s) { //El archivo.txt ya
 																					// fue abierto en el metodo anterior y
 																					// tenemos el string de la lectura
@@ -34,7 +34,7 @@ public class CreadorArbol {
 																// lista de diccionarios sin repetir e inicializados en
 																// frecuencia 0
 			// Se inicializa el encontrado en falso, que se encarga de que la primera vez siempre se
-			// a�ada al ArrayList de tipo diccionario, en caso de que ya se encuentre, ponemos el encontrado en
+			// anada al ArrayList de tipo diccionario, en caso de que ya se encuentre, ponemos el encontrado en
 			// true.
 			boolean encontrado = false;
 			for (int j = 0; j < caracteres.size(); j++) {
@@ -61,15 +61,15 @@ public class CreadorArbol {
 		return tablaFrecuencias;
 	}
 	
-	// M�todo de construccion de arbol en base a la tabla de frecuencias 
+	// Metodo de construccion de arbol en base a la tabla de frecuencias 
 	public static Nodo<Diccionario> construccion(PriorityQueue<Diccionario> tablaFrecuencias) { // Se recibe la tabla de frecuencias de menor a mayor(ascedente)
 		PriorityQueue<Nodo<Diccionario>> tablaNodos = new PriorityQueue<>(); //  // Se crea la cola de prioridad de los nodos que va a tener el arbol 
 		while (!tablaFrecuencias.isEmpty()) { // // Conversi�n de tabla de frecuencias a la de nodos
 			tablaNodos.add(new Nodo<Diccionario>(tablaFrecuencias.poll()));
 		}
-		// Se sacan de a dos elementos de la cola, a lo cuales se les asignar� un padre que resulta de la suma de sus frecuencias de repetici�n
+		// Se sacan de a dos elementos de la cola, a lo cuales se les asignara un padre que resulta de la suma de sus frecuencias de repeticion
 		// y este se vuelve a ingresar a la cola de prioridad (tabla nodos)
-		// en el return se va a sacar el �ltimo elemento que corresponde a la raiz del arbol resultante
+		// en el return se va a sacar el ultimo elemento que corresponde a la raiz del arbol resultante
 		while (tablaNodos.size() != 1) {
 			Nodo<Diccionario> nodo1 = tablaNodos.poll();
 			Nodo<Diccionario> nodo2 = tablaNodos.poll();
@@ -83,7 +83,7 @@ public class CreadorArbol {
 	}
 }
 
-//Clase que contiene el simbolo correspondiente y su frecuencia de aparici�n
+//Clase que contiene el simbolo correspondiente y su frecuencia de aparicion
 class Diccionario implements Comparable<Diccionario> {
 	char simbolo;
 	int valor;
@@ -115,7 +115,7 @@ class Diccionario implements Comparable<Diccionario> {
 	}
 
 	@Override
-	// M�todo compareTo que ayuda a comparar las frecuencias para darlas de forma ascendente
+	// Metodo compareTo que ayuda a comparar las frecuencias para darlas de forma ascendente
 	public int compareTo(Diccionario o) { // Es llamado por el compareTo de nodo
 		return (this.valor - o.getValor());
 	}

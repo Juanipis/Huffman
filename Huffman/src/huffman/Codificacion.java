@@ -15,7 +15,7 @@ public class Codificacion {
 			// haciendo uso del mapa de genDictionary
 		}
 		StringBuilder textPas2 = new StringBuilder();
-		//Fase 2, creacion de sub cadenas, todas deben empezar por 1 para que se pueda crear un caracter (en la descompresi�n)
+		//Fase 2, creacion de sub cadenas, todas deben empezar por 1 para que se pueda crear un caracter (en la descompresion)
 		for (int i = 0; i < textPas1.length(); i++) { // Separacion de secuencias de 15 bits con un ";"
 			if(i%15==0 && i!=0 && i!=1) {
 				textPas2.append(";");
@@ -28,10 +28,9 @@ public class Codificacion {
 		return textPas2.toString();
 	}
 	
-	// M�TODO DE COMPRESION
 	// Las secuencias binarias se pasan a numeros decimales asociados por medio de un base 2(eran binarios) 
-	// el .write se encargar� luego de pasar dichos decimales a caracteres especiales para demostrar la 
-	// compresion del archivo
+	// el .write se encargara luego de pasar dichos decimales a caracteres especiales para demostrar la 
+	// compresion del archivo en el compresor
 	public static void escritura(String[] arr, String lastSecuence, String ruta) throws IOException {
 		File f = new File(ruta); // declaramos e inicializamos un archivo nuevo para rellenar luego con integers
 		BufferedWriter flujo = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f), StandardCharsets.UTF_8)); // Los caracteres especiales van a estar en UTF-8
@@ -40,7 +39,7 @@ public class Codificacion {
 			flujo.write(value); // Esto se encarga del UTF-8
 		}
 		//ESCRITURA DE LA ULTIMA SECUENCIA EN BINARIO 
-		// Esta �ltima en el caso de que empiece por cero, no se pasa como caracter especial sino que se pega
+		// Esta ultima en el caso de que empiece por cero, no se pasa como caracter especial sino que se pega
 		// como binario tal cual en el archivo de salida
 		flujo.write(";");
 		flujo.write(lastSecuence);
@@ -48,9 +47,9 @@ public class Codificacion {
 		flujo.close();
 	}
 	
-	// M�todo para descomprimir el archivo en UTF-8 al original
+	// Metodo que servira descomprimir el archivo en UTF-8 al original
 	// String esta en UTF-8
-	public static String Decodificar2(String s, Map<Character,String> map, String lasBinaryDecode) {// Secuencia �ltima en binario para evitar los problemas
+	public static String Decodificar2(String s, Map<Character,String> map, String lasBinaryDecode) {// Secuencia ultima en binario para evitar los problemas
 		s = decodeUTF8Binario(s);
 		s = s+lasBinaryDecode; // Se pega el residuo binario original al archivo ya en binario
 		Map<String, Character> inverseMap = new HashMap<>(); // Mapa inverso, ya es binario y su caracter correspondiente
@@ -74,7 +73,7 @@ public class Codificacion {
 		for (int i = 0; i < s.length(); i++) {
 			String rr =Integer.toBinaryString((short) s.charAt(i)); // De UTF- 8 a decimal y de decimal a binario
 			if(rr.length() < 15 ) { //Debemos rellenar con ceros a la izquierda en todas las secuencias menores a 15 bits
-				// para recuperar informaci�n
+				// para recuperar informacion
 				while(rr.length()!=15) {
 					rr = "0"+rr;
 				}
@@ -84,7 +83,7 @@ public class Codificacion {
 		return result.toString(); // Devuelve el String de los binarios
 	}
 	
-	// M�todo que permite la lectura del archivo con los caracteres especiales resultantes
+	// Metodo que permite la lectura del archivo con los caracteres especiales resultantes
 	public static String leerFileUTF8(File file) throws IOException {
 		FileInputStream fileStream = new FileInputStream(file);
 		BufferedReader br = new BufferedReader(new InputStreamReader(fileStream, "UTF-8"));

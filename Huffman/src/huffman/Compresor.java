@@ -18,7 +18,7 @@ public class Compresor {
 		File file = f;
 		String path = file.getAbsolutePath(); // Ruta completa
 		String pathNoExtension = path.substring(0, path.lastIndexOf('.')); // Ruta sin el .txt
-		StringBuilder lectura = new StringBuilder(Codificacion.leerFileUTF8(file));
+		StringBuilder lectura = new StringBuilder(Codificacion.leerFileUTF8(file)); // Entrega el texto en UTF-8
 		lectura.deleteCharAt(lectura.length()-1); // Eliminacion del salto de linea
 
 		PriorityQueue<Diccionario> cola = CreadorArbol.reconocimientoCaracteres(lectura.toString());

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GenDictionary {
-	//M�todo que crea el diccionario para codificar cada uno de los caracteres, es aparte del original
+	//Metodo que crea el diccionario para codificar cada uno de los caracteres, es aparte del original
 	public static Map<Character,String> GenDic(Nodo<Diccionario> raiz) {
 		Map<Character,String> im= new HashMap<>();
 		String cod="";

@@ -1,5 +1,10 @@
 package huffman;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
@@ -50,8 +55,8 @@ public class CreadorArbol {
 		// Cola de prioridad que toma del ArrayList(tiene tnato simbolo como valor(frecuencia)
 		PriorityQueue<Diccionario> tablaFrecuencias = new PriorityQueue<>(); // Se crea una cola de prioridad de
 																				// diccionarios
-													// prioridad
 		for (int i = 0; i < caracteres.size(); i++) // Se recorre el arreglo de diccionarios y se agrega a la cola de
+													// prioridad
 			tablaFrecuencias.add(caracteres.get(i));
 		return tablaFrecuencias;
 	}
@@ -91,7 +96,7 @@ class Diccionario implements Comparable<Diccionario> {
 		this.simbolo = simbolo;
 		this.valor = valor;
 	}
-	// Get de valor y simbolo
+
 	public int getValor() {
 		return valor;
 	}
@@ -99,7 +104,7 @@ class Diccionario implements Comparable<Diccionario> {
 	public char getSimbolo() {
 		return simbolo;
 	}
-	// Set de valor
+
 	public void setValor(int valor) {
 		this.valor = valor;
 	}

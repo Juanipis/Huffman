@@ -37,7 +37,7 @@ public class Codificacion {
 		BufferedWriter flujo = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f), StandardCharsets.UTF_8)); // Los caracteres especiales van a estar en UTF-8
 		for (int i = 0; i < arr.length; i++) {
 			short value = Short.parseShort(arr[i], 2);
-			flujo.write(value);
+			flujo.write(value); // Esto se encarga del UTF-8
 		}
 		//ESCRITURA DE LA ULTIMA SECUENCIA EN BINARIO 
 		// Esta �ltima en el caso de que empiece por cero, no se pasa como caracter especial sino que se pega
